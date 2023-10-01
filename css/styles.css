@@ -140,12 +140,32 @@ img {
     gap: 40px;
 }
 
+.nav-list-item {
+    position: relative;
+}
+
+.nav-list-item:hover .nav-item-link::after {
+    width: 100%;
+    color: var(--ocean);
+}
+
 .nav-item-link {
     color: var(--navyblue);
     font-size: 16px;
     font-weight: 500;
     line-height: 24px;
     letter-spacing: 0.32px;
+}
+
+.nav-item-link::after {
+    content: "";
+    height: 4px;
+    width: 0;
+    background-color: var(--ocean);
+    border-radius: 2px;
+    position: absolute;
+    left: 0;
+    bottom: -25px;
 }
 
 .address-list {
@@ -165,7 +185,7 @@ img {
 
 
 
-/*Herro Section*/
+/*Hero Section*/
 .hero {
     color: var(--white);
     padding: 188px 316px;
@@ -278,6 +298,10 @@ img {
     margin-bottom: 8px;
 }
 
+.teams-item-social-links:hover {
+    background-color: var(--ocean);
+}
+
 /*Clients Section*/
 .clients {
     padding: 120px 0;
@@ -294,11 +318,21 @@ img {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.client-list-item-link {
+    color: var(--lightslate); 
+}
+
+.clients-list-items:hover {
+    border-color: var(--ocean);
+}
+.clients-list-items:hover .client-list-item-link {
+    color: var(--ocean);
 }
 .clients-list-items-icon {
-    display: inline-block;
-    fill: var(--lightslate);
+    display: block;
+    fill: currentColor;
 }
 .clients-list-client-1 {
     width: 41px;
@@ -373,6 +407,10 @@ img {
 
 .footer-list-item-socials {
     width: 208px;
+}
+
+.footer-list-social-links:hover {
+    background-color: var(--green);
 }
 /* End of Studio Page */
 
