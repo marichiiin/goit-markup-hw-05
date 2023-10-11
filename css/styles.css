@@ -87,6 +87,7 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .teams-item-social-icon,
@@ -328,7 +329,9 @@ img {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+                border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
 }
 .client-list-item-link {
     color: var(--lightslate); 
@@ -344,7 +347,7 @@ img {
     display: block;
     fill: currentColor;
 }
-.clients-list-client-1 {
+ .clients-list-client-1 {
     width: 41px;
     height: 47px;
 }
@@ -422,6 +425,66 @@ img {
 .footer-list-social-links:hover {
     background-color: var(--green);
 }
+
+/* Modal Section */
+.backdrop {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(46, 47, 66, 0.4);
+    opacity: 1;
+    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.backdrop.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 408px;
+    min-height: 584px;
+    background-color: var(--dairy);
+    box-shadow: 0px 2px 1px 0px rgba(0, 0, 0, 0.2),
+                0px 1px 3px 0px rgba(0, 0, 0, 0.12),
+                0px 1px 1px 0px rgba(0, 0, 0, 0.14),;
+    border-radius: 4px;
+    transform: translate(-50%, -50%) scale(1);
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-close {
+    width: 24px;
+    height: 24px;
+    background-color: var(--cornflower);
+    border-radius: 50%;
+    border: 1px solid rgba(46, 47, 66, 0.4);
+    position: absolute;
+    right: 24px;
+    top: 24px;
+    color: var(--navyblue);
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+                background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+                border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-close-icon {
+    width: 8px;
+    height: 10px;
+    fill: currentColor;
+}
+
+.modal-close:hover {
+    color: var(--cloud);
+    background-color: var(--ocean);
+    border-color: var(--ocean);
+}
 /* End of Studio Page */
 
 
@@ -450,11 +513,16 @@ img {
     font-weight: 500;
     line-height: 20px;
     padding: 12px 24px;
-    border: 1px solid var(--cornflower);  
+    border: 1px solid var(--cornflower); 
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+                background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+                border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1); 
 }
 
+.is-active,
 .filter-item-button-type:hover {
-    background: var(--ocean);
+    background-color: var(--ocean);
     color: var(--white);
     border-color: var(--ocean);
     box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.12), 0px 2px 1px 0px rgba(0, 0, 0, 0.08), 0px 3px 1px 0px rgba(0, 0, 0, 0.10);
@@ -471,6 +539,37 @@ img {
     flex-wrap: wrap;
 }
 
+.portfolio-list-items{
+    transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.portfolio-project-link:hover .portfolio-project-cover-text{
+    transform: translateY(0);
+}
+.portfolio-list-items:hover,
+.portfolio-list-items:focus {
+    box-shadow: 0px 2px 1px 0px rgba(46, 47, 66, 0.08), 0px 1px 1px 0px rgba(46, 47, 66, 0.16), 0px 1px 6px 0px rgba(46, 47, 66, 0.08);
+}
+
+.portfolio-cards-figure {
+    position: relative;
+    overflow: hidden;
+    height: 300px;
+}
+
+.portfolio-project-cover-text {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    padding: 40px 32px;
+    background-color: var(--iris);
+    color: var(--cloud);
+    line-height: 24px;
+    letter-spacing: 0.32px;
+    transform: translatey(100%);
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
 .portfolio-card-desc {
     padding: 32px 16px;
     display: flex;
@@ -482,10 +581,6 @@ img {
     background: var(--white);
 }
 
-.portfolio-card-desc:hover {
-    box-shadow: 0px 2px 1px 0px rgba(46, 47, 66, 0.08), 0px 1px 1px 0px rgba(46, 47, 66, 0.16), 0px 1px 6px 0px rgba(46, 47, 66, 0.08);
-    cursor: pointer;
-}
 .portfolio-list-title {
     font-size: 20px;
     font-weight: 500;
