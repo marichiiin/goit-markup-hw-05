@@ -87,7 +87,7 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .teams-item-social-icon,
@@ -329,12 +329,12 @@ img {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-                border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
 }
 .client-list-item-link {
     color: var(--lightslate); 
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .clients-list-items:hover {
@@ -586,6 +586,7 @@ img {
     font-weight: 500;
     line-height: 24px;
     letter-spacing: 0.4px;
+    color: var(--navyblue);
 }
 
 .portfolio-list-description {
